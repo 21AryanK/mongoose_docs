@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <title>Your Mongoose Documentation</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo_item">
+        <a href="#about" style="text-decoration: none; color: inherit;">
+        <i class="bx bx-menu" id="sidebarOpen"></i>
+        Mongoose Buddy
+      </a>
+      </div>
+
+      <!-- <div class="search_bar">
+        <input type="text" placeholder="Search" />
+      </div> -->
+
+      <div class="navbar_content">
+        <i class="bi bi-grid"></i>
+        <i class='bx bx-sun' id="darkLight"></i>
+        <a href="https://www.linkedin.com/in/aryan-kumar-3369041aa?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B3xwFkMurRwSUNXEU%2BvcWFA%3D%3D"><img src="images/linkedin.png" alt="" class="profile" /></a>
+      </div>
+    </nav>
+
+    <!-- sidebar -->
+    <nav class="sidebar">
+      <div class="menu_content">
+        <ul class="menu_items">
+          <div class="menu_title menu_dahsboard"></div>
+          <!-- duplicate or remove this li tag if you want to add or remove navlink with submenu -->
+          <!-- start -->
+          <li class="item">
+            <div class="nav_link submenu_item">
+              <a href="#about" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bx-home-alt"></i>
+              </span>
+              <span class="navlink">Home</span>
+            </a>
+            </div>
+          </li>
+          <!-- end -->
+        </ul>
+
+        <ul class="menu_items">
+          <div class="menu_title menu_editor"></div>
+          <!-- duplicate these li tag if you want to add or remove navlink only -->
+          <!-- Start -->
+          <li class="item">
+            <a href="#connect" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bxs-magic-wand"></i>
+              </span>
+              <span class="navlink">Create</span>
+            </a>
+          </li>
+          <!-- End -->
+
+          <li class="item">
+            <a href="#reading" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bxs-magic-wand"></i>
+              </span>
+              <span class="navlink">Read</span>
+            </a>
+          </li>
+          <li class="item">
+            <a href="#update" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bxs-magic-wand"></i>
+              </span>
+              <span class="navlink">Update</span>
+            </a>
+          </li>
+          <li class="item">
+            <a href="#delete" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bxs-magic-wand"></i>
+              </span>
+              <span class="navlink">Delete</span>
+            </a>
+          </li>
+        </ul>
+        <ul class="menu_items">
+          <div class="menu_title menu_setting"></div>
+          <li class="item">
+            <a href="mailto:bholukumar999t@gmail.com" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bx-flag"></i>
+              </span>
+              <span class="navlink">Contact Me</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Sidebar Open / Close -->
+        <div class="bottom_content">
+          <div class="bottom expand_sidebar">
+            <span> Expand</span>
+            <i class='bx bx-log-in' ></i>
+          </div>
+          <div class="bottom collapse_sidebar">
+            <span> Collapse</span>
+            <i class='bx bx-log-out'></i>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Introduction -->
+    <div id="about" style="margin: 0% 10% 0% 18%; padding-top: 80px; width: 60%;" class="intro">
+      <h1 class="heading">About</h1>
+      <div class="data" style="width: 90%;">
+        <p>Mongoose is an Object Data Modeling (ODM) library for MongoDB. It defines a strongly-typed-schema, with default values and schema validations which are later mapped to a MongoDB document.</p>
+        <br>
+        <p>As you all are aware that mongoose has removed callback function for certain <span><a href="https://mongoosejs.com/docs/migrating_to_7.html">functions</a></span>.</p>
+        <p>In this documentaion there will be only practical things about CRUD operations to be performed in latest version of <span><a href="https://www.npmjs.com/package/mongoose">Mongoose</a></span>.</p>
+        <br>
+        <p>You can convert your previous version code using this <span><a href="https://masteringjs.io/tutorials/tools/callback-to-async-await">tool</a></span>. This will convert callbacks to Asynchronous or Await functions using OpenAI.</p>
+      </div>
+    </div>
+    <!-- End of introduction section  -->
+
+    <!-- Code Section -->
+
+    <div id="connect" class="text-boxes">
+      <div class="text-box HTMLBox">
+        <div class="topic">Connecting mongoose and making schema and model</div>
+        <textarea id="HTMLBox" readonly>
+          const mongoose = require('mongoose');
+
+          // MongoDB connection URL
+          const mongoURL = 'mongodb://0.0.0.0:27017/name_of_your_database';
+          
+          // Connect to MongoDB
+          mongoose.connect(mongoURL, { useNewUrlParser: true, useUnifiedTopology: true })
+           .then(() => {
+            console.log('Connected to MongoDB');
+            // Start your application logic here
+
+            //Defining a schema with an example 
+            const blogSchema= new mongoose.Schema({
+              title:String,
+              content: String
+            });
+
+            //Defining a model with an example
+            const Blog= mongoose.model("Blog",blogSchema);
+
+            })
+            .catch((error) => {
+              console.error('Error connecting to MongoDB:', error);
+            });
+      </textarea
+        >
+        <button id="HTMLButton">Copy Codes</button>
+      </div>
+      <div class="text-box CSSBox">
+        <div class="topic">Various Create Operations</div>
+        <textarea id="CSSBox" readonly> 
+        //After creating schema and the model this is how you will be inserting data inside your database 
+        const name= new model_name({
+          field : value //Normal data
+        });
+        name.save();
+
+        //Performing insertMany()
+        model_name.insertMany([parameter, parameter])
+        .then(function(){
+          console.log("success");
+        });
+        .catch(function(err){
+          console.log(err);
+        });
+      </textarea>
+        <button id="CSSButton">Copy Codes</button>
+      </div>
+      <div id="reading"  class="text-box JSBox">
+        <div class="topic">Reading Operations</div>
+        <textarea id="JSBox" readonly>
+        //.find() - For function reading and displaying all data present in the collection.
+        
+        model_name.find()
+          .then(function(name_of_collection){
+            console.log(fruit);
+          });
+          .catch(function(err){
+            console.log(err);
+          });
+
+        //The given data from MongoDB is a type of Array in JavaScript. We can access its individual elements like we do in JavaScript.
+        
+        model_name.find()
+          .then(function(collection_name){
+            collection_name.forEach(function(name){
+              console.log(name.field_name));
+            });
+          })
+          .catch(function (err){
+            console.log(err);
+          });
+      </textarea>
+        <button id="JSButton">Copy Codes</button>
+      </div>
+      <div id="update" class="text-box JSBox">
+        <div class="topic">Update Operation</div>
+        <textarea id="JSBox" readonly>
+        model_name.updateOne({Parameter1}, {Parameter2})
+        
+          //Parameter1: Where you want to update, specify the unique thing. For example: {_id: "abcd"}
+          //Parameter2: What you want to update. For example: {name: "peach"}
+
+          .then(function(){
+            console.log('Success');
+          });
+          .catch(function(err){
+            console.log(err);
+          });
+      </textarea>
+        <button id="JSButton">Copy Codes</button>
+      </div>
+      <div id="delete" class="text-box JSBox">
+        <div class="topic">Delete Operation</div>
+        <textarea id="JSBox" readonly>
+        //deleteOne()
+
+        await model_name.deleteOne({field_name:"data to be deleted"});
+        //Make sure you have proper identification
+
+        //You can also use 
+        model_name.deleteOne({field_name:"data to be deleted"})
+          .then(function(){
+            console.log("Deleted");
+          });
+          .catch(function(err){
+            console.log(err);
+          });
+
+        //deleteMany()
+
+        await model_name.deleteMany({field_name:"data to be deleted"});
+
+        //You can also use 
+        model_name.deleteOne({field_name:"data to be deleted"})
+          .then(function(){
+            console.log("Deleted");
+          });
+          .catch(function(err){
+            console.log(err);
+          });
+      </textarea>
+        <button id="JSButton">Copy Codes</button>
+      </div>
+    </div>
+    <footer style="text-align: center;">Copyright @Aryan</footer>
+    <!-- JavaScript -->
+    <script src="index.js"></script>
+  </body>
+</html>
