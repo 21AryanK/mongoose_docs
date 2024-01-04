@@ -78,19 +78,19 @@ JSButton.onclick = function () {
 };
 
 // Update Box
-let JSBox = document.getElementById("update");
-let JSButton = document.getElementById("JSButton");
-JSButton.onclick = function () {
-  JSBox.select();
+let Box = document.getElementById("Box");
+let Button = document.getElementById("Button");
+Button.onclick = function () {
+  Box.select();
   document.execCommand("copy");
-  JSButton.innerText = "Codes Copied";
+  Button.innerText = "Codes Copied";
 };
 
 //Delete Box
-let JSBox = document.getElementById("delete");
-let JSButton = document.getElementById("JSButton");
-JSButton.onclick = function () {
-  JSBox.select();
+let JSB = document.getElementById("JSB");
+let JSBu = document.getElementById("JSBu");
+JSBu.onclick = function () {
+  JSB.select();
   document.execCommand("copy");
-  JSButton.innerText = "Codes Copied";
+  JSBu.innerText = "Codes Copied";
 };
